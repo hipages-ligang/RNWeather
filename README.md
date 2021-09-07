@@ -1,3 +1,0 @@
-# RNWeather
-
-WIP
