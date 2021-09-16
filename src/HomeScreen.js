@@ -10,7 +10,7 @@ const styles = StyleSheet.create({
         justifyContent: "center"
     },
     view: {
-        ...container,
+        ...StyleSheet.container,
         backgroundColor: "red"
     }
 })
