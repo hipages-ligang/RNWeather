@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, FlatList } from 'react-native';
+import { View, Text, StyleSheet, FlatList, RefreshControl } from 'react-native';
 import Colors from './Assets/Colors';
 
 const styles = StyleSheet.create({
@@ -38,6 +38,10 @@ const DATA = [
 class HomeScreen extends Component {
     constructor(props) {
         super(props);
+
+        this.state = {
+            refreshing: false
+        };
     }
 
     renderItem = (item) => {
@@ -57,6 +61,7 @@ class HomeScreen extends Component {
     };
 
     render() {
+        const { refreshing } = this.state;
         return (
             <View style={styles.container}>
                 <FlatList
@@ -65,6 +70,24 @@ class HomeScreen extends Component {
                     }}
                     data={DATA}
                     renderItem={({ item }) => this.renderItem(item)}
+                    refreshControl={
+                        <RefreshControl
+                            colors={[Colors.primary_medium]}
+                            tintColor={Colors.primary_medium}
+                            refreshing={refreshing}
+                            onRefresh={() => {
+                                console.log('refreshing');
+                                this.setState({
+                                    refreshing: true
+                                });
+                                setTimeout(() => {
+                                    this.setState({
+                                        refreshing: false
+                                    });
+                                }, 2000);
+                            }}
+                        />
+                    }
                 />
             </View>
         );
