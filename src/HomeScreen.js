@@ -19,12 +19,23 @@ const styles = StyleSheet.create({
         justifyContent: 'center'
     },
     itemContainer: {
-        width: '100%',
         height: 60,
         backgroundColor: Colors.cardBg,
-        padding: 20,
+        paddingHorizontal: 10,
         flexDirection: 'row',
-        alignItems: 'center'
+        alignItems: 'center',
+        marginHorizontal: 10,
+        marginVertical: 5,
+        borderWidth: 1,
+        borderRadius: 5,
+        borderColor: Colors.border
+    },
+    weatherIcon: {
+        width: 50,
+        height: 50,
+        backgroundColor: Colors.primary_light,
+        marginRight: 10,
+        borderRadius: 3
     }
 });
 
@@ -42,7 +53,7 @@ class HomeScreen extends Component {
         return (
             <View style={styles.itemContainer}>
                 <Image
-                    style={{ width: 50, height: 50 }}
+                    style={styles.weatherIcon}
                     source={{
                         uri: `https://openweathermap.org/img/wn/${weather.icon}@2x.png`
                     }}

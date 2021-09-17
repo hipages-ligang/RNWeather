@@ -107,9 +107,9 @@ export const weatherData = {
             weather: [
                 {
                     id: 500,
-                    main: 'Rain',
-                    description: 'light rain',
-                    icon: '10d'
+                    main: 'Clouds',
+                    description: 'broken clouds',
+                    icon: '04n'
                 }
             ],
             speed: 2.55,
