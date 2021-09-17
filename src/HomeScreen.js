@@ -1,6 +1,14 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, FlatList, RefreshControl } from 'react-native';
+import {
+    View,
+    Text,
+    StyleSheet,
+    FlatList,
+    RefreshControl,
+    Image
+} from 'react-native';
 import Colors from './Assets/Colors';
+import { weatherData } from './Data/weatherData_7days';
 
 const styles = StyleSheet.create({
     container: {
@@ -9,31 +17,16 @@ const styles = StyleSheet.create({
         backgroundColor: Colors.white,
         alignItems: 'center',
         justifyContent: 'center'
+    },
+    itemContainer: {
+        width: '100%',
+        height: 60,
+        backgroundColor: Colors.cardBg,
+        padding: 20,
+        flexDirection: 'row',
+        alignItems: 'center'
     }
 });
-
-const DATA = [
-    {
-        title: 'title1',
-        description: 'afafjakldfajdfkjas'
-    },
-    {
-        title: 'title2',
-        description: 'afafjakldfajdfkjas'
-    },
-    {
-        title: 'title3',
-        description: 'afafjakldfajdfkjas'
-    },
-    {
-        title: 'title4',
-        description: 'afafjakldfajdfkjas'
-    },
-    {
-        title: 'title5',
-        description: 'afafjakldfajdfkjas'
-    }
-];
 
 class HomeScreen extends Component {
     constructor(props) {
@@ -45,30 +38,33 @@ class HomeScreen extends Component {
     }
 
     renderItem = (item) => {
+        let weather = item?.weather[0];
         return (
-            <View
-                style={{
-                    width: '100%',
-                    height: 60,
-                    backgroundColor: Colors.cardBg,
-                    padding: 20
-                }}
-            >
-                <Text>{item.title}</Text>
-                <Text>{item.description}</Text>
+            <View style={styles.itemContainer}>
+                <Image
+                    style={{ width: 50, height: 50 }}
+                    source={{
+                        uri: `https://openweathermap.org/img/wn/${weather.icon}@2x.png`
+                    }}
+                />
+                <View>
+                    <Text>{weather.main}</Text>
+                    <Text>{weather.description}</Text>
+                </View>
             </View>
         );
     };
 
     render() {
         const { refreshing } = this.state;
+        const weatherList = weatherData?.list;
         return (
             <View style={styles.container}>
                 <FlatList
                     style={{
                         width: '100%'
                     }}
-                    data={DATA}
+                    data={weatherList}
                     renderItem={({ item }) => this.renderItem(item)}
                     refreshControl={
                         <RefreshControl
