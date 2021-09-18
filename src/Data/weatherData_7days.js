@@ -1,74 +1,103 @@
 export const weatherData = {
-    city: {
-        id: 2867714,
-        name: 'Munich',
-        coord: {
-            lon: 11.5755,
-            lat: 48.1374
-        },
-        country: 'DE',
-        population: 1260391,
-        timezone: 7200
+    lat: 34.2109,
+    lon: 108.842,
+    timezone: 'Asia/Shanghai',
+    timezone_offset: 28800,
+    current: {
+        dt: 1631953266,
+        sunrise: 1631917784,
+        sunset: 1631962090,
+        temp: 19.49,
+        feels_like: 20.05,
+        pressure: 1010,
+        humidity: 98,
+        dew_point: 19.17,
+        uvi: 0.31,
+        clouds: 100,
+        visibility: 4526,
+        wind_speed: 3.64,
+        wind_deg: 272,
+        wind_gust: 7.19,
+        weather: [
+            {
+                id: 500,
+                main: 'Rain',
+                description: 'light rain',
+                icon: '10d'
+            }
+        ],
+        rain: {
+            '1h': 0.56
+        }
     },
-    cod: '200',
-    message: 0.0518182,
-    cnt: 7,
-    list: [
+    daily: [
         {
-            dt: 1625137200,
-            sunrise: 1625109452,
-            sunset: 1625167037,
+            dt: 1631937600,
+            sunrise: 1631917784,
+            sunset: 1631962090,
+            moonrise: 1631957940,
+            moonset: 1631906160,
+            moon_phase: 0.4,
             temp: {
-                day: 287.91,
-                min: 284.05,
-                max: 287.91,
-                night: 285.11,
-                eve: 286.19,
-                morn: 284.05
+                day: 18.71,
+                min: 16.94,
+                max: 19.49,
+                night: 16.94,
+                eve: 19.01,
+                morn: 18.53
             },
             feels_like: {
-                day: 287.53,
-                night: 284.84,
-                eve: 285.95,
-                morn: 283.65
+                day: 19.2,
+                night: 17.14,
+                eve: 19.53,
+                morn: 18.97
             },
-            pressure: 1015,
-            humidity: 80,
+            pressure: 1010,
+            humidity: 98,
+            dew_point: 18.39,
+            wind_speed: 6.21,
+            wind_deg: 258,
+            wind_gust: 11.16,
             weather: [
                 {
-                    id: 501,
+                    id: 502,
                     main: 'Rain',
-                    description: 'moderate rain',
+                    description: 'heavy intensity rain',
                     icon: '10d'
                 }
             ],
-            speed: 6.27,
-            deg: 258,
-            gust: 12.42,
             clouds: 100,
             pop: 1,
-            rain: 10.96
+            rain: 39.75,
+            uvi: 0.55
         },
         {
-            dt: 1625223600,
-            sunrise: 1625195889,
-            sunset: 1625253422,
+            dt: 1632024000,
+            sunrise: 1632004225,
+            sunset: 1632048404,
+            moonrise: 1632046380,
+            moonset: 1631996520,
+            moon_phase: 0.44,
             temp: {
-                day: 291.94,
-                min: 283.54,
-                max: 293.73,
-                night: 285.73,
-                eve: 292.25,
-                morn: 284.92
+                day: 22.95,
+                min: 17.02,
+                max: 25.22,
+                night: 19.71,
+                eve: 23.56,
+                morn: 17.62
             },
             feels_like: {
-                day: 291.47,
-                night: 285.29,
-                eve: 291.91,
-                morn: 284.58
+                day: 23,
+                night: 19.62,
+                eve: 23.69,
+                morn: 17.68
             },
-            pressure: 1019,
-            humidity: 61,
+            pressure: 1013,
+            humidity: 65,
+            dew_point: 15.44,
+            wind_speed: 4.73,
+            wind_deg: 256,
+            wind_gust: 9.79,
             weather: [
                 {
                     id: 500,
@@ -77,68 +106,197 @@ export const weatherData = {
                     icon: '10d'
                 }
             ],
-            speed: 3.73,
-            deg: 320,
-            gust: 5.28,
-            clouds: 70,
-            pop: 0.38,
-            rain: 0.15
+            clouds: 100,
+            pop: 1,
+            rain: 2.57,
+            uvi: 6.96
         },
         {
-            dt: 1625310000,
-            sunrise: 1625282329,
-            sunset: 1625339804,
+            dt: 1632110400,
+            sunrise: 1632090666,
+            sunset: 1632134718,
+            moonrise: 1632134640,
+            moonset: 1632086760,
+            moon_phase: 0.47,
             temp: {
-                day: 295.56,
-                min: 284.31,
-                max: 295.88,
-                night: 288.83,
-                eve: 291.49,
-                morn: 288.28
+                day: 26.29,
+                min: 17.11,
+                max: 28.87,
+                night: 21.6,
+                eve: 26.25,
+                morn: 17.11
             },
             feels_like: {
-                day: 295.24,
-                night: 288.86,
-                eve: 291.39,
-                morn: 287.86
+                day: 26.29,
+                night: 21.1,
+                eve: 26.25,
+                morn: 17.02
             },
-            pressure: 1016,
-            humidity: 53,
+            pressure: 1011,
+            humidity: 49,
+            dew_point: 14.27,
+            wind_speed: 3.16,
+            wind_deg: 167,
+            wind_gust: 5.24,
             weather: [
                 {
                     id: 500,
-                    main: 'Clouds',
-                    description: 'broken clouds',
-                    icon: '04n'
+                    main: 'Rain',
+                    description: 'light rain',
+                    icon: '10d'
                 }
             ],
-            speed: 2.55,
-            deg: 51,
-            gust: 2.39,
-            clouds: 96,
-            pop: 0.36,
-            rain: 0.61
+            clouds: 3,
+            pop: 0.3,
+            rain: 0.8,
+            uvi: 7.33
         },
         {
-            dt: 1625396400,
-            sunrise: 1625368770,
-            sunset: 1625426183,
+            dt: 1632196800,
+            sunrise: 1632177108,
+            sunset: 1632221033,
+            moonrise: 1632222720,
+            moonset: 1632176820,
+            moon_phase: 0.5,
             temp: {
-                day: 291.78,
-                min: 287.26,
-                max: 293.98,
-                night: 288.35,
-                eve: 291.19,
-                morn: 287.32
+                day: 26.79,
+                min: 19.1,
+                max: 30.49,
+                night: 23.17,
+                eve: 30.49,
+                morn: 19.19
             },
             feels_like: {
-                day: 291.79,
-                night: 288.41,
-                eve: 291.37,
-                morn: 287.38
+                day: 26.86,
+                night: 23.14,
+                eve: 30.14,
+                morn: 18.63
+            },
+            pressure: 1009,
+            humidity: 43,
+            dew_point: 12.56,
+            wind_speed: 2.41,
+            wind_deg: 206,
+            wind_gust: 3.31,
+            weather: [
+                {
+                    id: 800,
+                    main: 'Clear',
+                    description: 'clear sky',
+                    icon: '01d'
+                }
+            ],
+            clouds: 0,
+            pop: 0,
+            uvi: 7.34
+        },
+        {
+            dt: 1632283200,
+            sunrise: 1632263549,
+            sunset: 1632307347,
+            moonrise: 1632310740,
+            moonset: 1632266820,
+            moon_phase: 0.54,
+            temp: {
+                day: 26.68,
+                min: 19.92,
+                max: 28.2,
+                night: 19.92,
+                eve: 23.18,
+                morn: 21.48
+            },
+            feels_like: {
+                day: 27.18,
+                night: 20.34,
+                eve: 23.43,
+                morn: 21.43
+            },
+            pressure: 1008,
+            humidity: 51,
+            dew_point: 15.21,
+            wind_speed: 4.07,
+            wind_deg: 330,
+            wind_gust: 3.68,
+            weather: [
+                {
+                    id: 501,
+                    main: 'Rain',
+                    description: 'moderate rain',
+                    icon: '10d'
+                }
+            ],
+            clouds: 100,
+            pop: 1,
+            rain: 4.42,
+            uvi: 5.87
+        },
+        {
+            dt: 1632369600,
+            sunrise: 1632349991,
+            sunset: 1632393662,
+            moonrise: 1632398760,
+            moonset: 1632356700,
+            moon_phase: 0.57,
+            temp: {
+                day: 22.97,
+                min: 19.54,
+                max: 23.75,
+                night: 20.4,
+                eve: 23.12,
+                morn: 19.54
+            },
+            feels_like: {
+                day: 23.28,
+                night: 20.79,
+                eve: 23.52,
+                morn: 19.93
+            },
+            pressure: 1013,
+            humidity: 75,
+            dew_point: 17.79,
+            wind_speed: 3.94,
+            wind_deg: 41,
+            wind_gust: 6.38,
+            weather: [
+                {
+                    id: 500,
+                    main: 'Rain',
+                    description: 'light rain',
+                    icon: '10d'
+                }
+            ],
+            clouds: 98,
+            pop: 0.51,
+            rain: 0.9,
+            uvi: 6
+        },
+        {
+            dt: 1632456000,
+            sunrise: 1632436432,
+            sunset: 1632479977,
+            moonrise: 1632486840,
+            moonset: 1632446580,
+            moon_phase: 0.6,
+            temp: {
+                day: 21.41,
+                min: 19.19,
+                max: 21.41,
+                night: 19.19,
+                eve: 19.93,
+                morn: 19.77
+            },
+            feels_like: {
+                day: 21.9,
+                night: 19.59,
+                eve: 20.49,
+                morn: 20.18
             },
             pressure: 1012,
-            humidity: 80,
+            humidity: 88,
+            dew_point: 18.78,
+            wind_speed: 2.8,
+            wind_deg: 30,
+            wind_gust: 4.58,
             weather: [
                 {
                     id: 501,
@@ -147,115 +305,50 @@ export const weatherData = {
                     icon: '10d'
                 }
             ],
-            speed: 2.23,
-            deg: 78,
-            gust: 4,
-            clouds: 98,
-            pop: 0.99,
-            rain: 8.53
+            clouds: 100,
+            pop: 0.98,
+            rain: 26.38,
+            uvi: 6
         },
         {
-            dt: 1625482800,
-            sunrise: 1625455214,
-            sunset: 1625512559,
+            dt: 1632542400,
+            sunrise: 1632522874,
+            sunset: 1632566291,
+            moonrise: 1632575040,
+            moonset: 1632536400,
+            moon_phase: 0.63,
             temp: {
-                day: 292.64,
-                min: 286.76,
-                max: 294.28,
-                night: 287.83,
-                eve: 292.05,
-                morn: 286.76
+                day: 18.91,
+                min: 17.63,
+                max: 18.91,
+                night: 17.63,
+                eve: 18.25,
+                morn: 18.4
             },
             feels_like: {
-                day: 292.45,
-                night: 287.76,
-                eve: 292.03,
-                morn: 286.71
+                day: 19.39,
+                night: 17.98,
+                eve: 18.61,
+                morn: 18.83
             },
-            pressure: 1016,
-            humidity: 69,
+            pressure: 1013,
+            humidity: 97,
+            dew_point: 17.83,
+            wind_speed: 1.96,
+            wind_deg: 18,
+            wind_gust: 3.51,
             weather: [
                 {
-                    id: 500,
+                    id: 501,
                     main: 'Rain',
-                    description: 'light rain',
+                    description: 'moderate rain',
                     icon: '10d'
                 }
             ],
-            speed: 4.59,
-            deg: 271,
-            gust: 10.71,
             clouds: 100,
             pop: 1,
-            rain: 5.28
-        },
-        {
-            dt: 1625569200,
-            sunrise: 1625541659,
-            sunset: 1625598933,
-            temp: {
-                day: 300.23,
-                min: 286.07,
-                max: 300.43,
-                night: 291.23,
-                eve: 296.12,
-                morn: 290.35
-            },
-            feels_like: {
-                day: 300.58,
-                night: 291.34,
-                eve: 296.51,
-                morn: 290.16
-            },
-            pressure: 1016,
-            humidity: 49,
-            weather: [
-                {
-                    id: 800,
-                    main: 'Clear',
-                    description: 'sky is clear',
-                    icon: '01d'
-                }
-            ],
-            speed: 3.36,
-            deg: 85,
-            gust: 7.31,
-            clouds: 0,
-            pop: 0
-        },
-        {
-            dt: 1625655600,
-            sunrise: 1625628107,
-            sunset: 1625685304,
-            temp: {
-                day: 301.22,
-                min: 288.54,
-                max: 301.62,
-                night: 293.1,
-                eve: 297.38,
-                morn: 292.67
-            },
-            feels_like: {
-                day: 301.96,
-                night: 293.14,
-                eve: 297.76,
-                morn: 292.74
-            },
-            pressure: 1017,
-            humidity: 53,
-            weather: [
-                {
-                    id: 800,
-                    main: 'Clear',
-                    description: 'sky is clear',
-                    icon: '01d'
-                }
-            ],
-            speed: 3.82,
-            deg: 76,
-            gust: 7.32,
-            clouds: 0,
-            pop: 0
+            rain: 41.23,
+            uvi: 6
         }
     ]
 };
