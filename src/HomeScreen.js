@@ -5,18 +5,25 @@ import {
     StyleSheet,
     FlatList,
     RefreshControl,
-    Image
+    Image,
+    TouchableOpacity
 } from 'react-native';
 import { fetch7daysForecast } from './API/api';
 import Colors from './Assets/Colors';
 import { weatherData } from './Data/weatherData_7days';
-import { cToF, fToC, getTimeStr } from './Utils/commonUtils';
+import { getTimeStr } from './Utils/commonUtils';
 
 const styles = StyleSheet.create({
     container: {
         width: '100%',
         height: '100%',
         backgroundColor: Colors.white,
+        alignItems: 'center',
+        justifyContent: 'center'
+    },
+    headerContainer: {
+        width: '100%',
+        height: 100,
         alignItems: 'center',
         justifyContent: 'center'
     },
@@ -80,15 +87,13 @@ class HomeScreen extends Component {
         const currentWeather = current?.weather[0];
         const temp = current?.temp;
         return (
-            <View
-                style={{
-                    width: '100%',
-                    height: 100,
-                    alignItems: 'center',
-                    justifyContent: 'center'
-                }}
-            >
-                <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+            <View style={styles.headerContainer}>
+                <View
+                    style={{
+                        flexDirection: 'row',
+                        alignItems: 'center'
+                    }}
+                >
                     <Image
                         style={styles.currentWeatherIcon}
                         source={{
@@ -105,22 +110,29 @@ class HomeScreen extends Component {
     renderItem = (item) => {
         let weather = item?.weather[0];
         let timeStr = getTimeStr(item?.dt);
+        const { navigation } = this.props;
         return (
-            <View style={styles.itemContainer}>
-                <Image
-                    style={styles.itemWeatherIcon}
-                    source={{
-                        uri: `https://openweathermap.org/img/wn/${weather.icon}@2x.png`
-                    }}
-                />
-                <View>
-                    <Text>{weather.main}</Text>
-                    <Text>{weather.description}</Text>
+            <TouchableOpacity
+                onPress={() => {
+                    navigation.navigate('Day');
+                }}
+            >
+                <View style={styles.itemContainer} key={timeStr}>
+                    <Image
+                        style={styles.itemWeatherIcon}
+                        source={{
+                            uri: `https://openweathermap.org/img/wn/${weather.icon}@2x.png`
+                        }}
+                    />
+                    <View>
+                        <Text>{weather.main}</Text>
+                        <Text>{weather.description}</Text>
+                    </View>
+                    <View style={{ flex: 1, alignItems: 'flex-end' }}>
+                        <Text>{timeStr}</Text>
+                    </View>
                 </View>
-                <View style={{ flex: 1, alignItems: 'flex-end' }}>
-                    <Text>{timeStr}</Text>
-                </View>
-            </View>
+            </TouchableOpacity>
         );
     };
 
@@ -136,6 +148,7 @@ class HomeScreen extends Component {
                     data={weatherList}
                     ListHeaderComponent={() => this.renderHeader()}
                     renderItem={({ item }) => this.renderItem(item)}
+                    keyExtractor={(item) => getTimeStr(item?.dt)}
                     refreshControl={
                         <RefreshControl
                             colors={[Colors.primary_medium]}
