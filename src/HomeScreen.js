@@ -70,6 +70,7 @@ class HomeScreen extends Component {
         fetch7daysForecast((data) => {
             if (data.success) {
                 console.log('----update weather success!----');
+                console.log(`-hourly count: ${data.value.hourly.length}`);
                 this.setState({
                     weatherDataObj: data.value,
                     refreshing: false
@@ -85,30 +86,42 @@ class HomeScreen extends Component {
     renderHeader = () => {
         const current = this.state.weatherDataObj?.current;
         const currentWeather = current?.weather[0];
-        const temp = current?.temp;
+
+        const hourly = this.state.weatherDataObj?.hourly;
+
+        const temp = parseInt(current?.temp);
+        const { navigation } = this.props;
         return (
-            <View style={styles.headerContainer}>
-                <View
-                    style={{
-                        flexDirection: 'row',
-                        alignItems: 'center'
-                    }}
-                >
-                    <Image
-                        style={styles.currentWeatherIcon}
-                        source={{
-                            uri: `https://openweathermap.org/img/wn/${currentWeather?.icon}@2x.png`
+            <TouchableOpacity
+                onPress={() => {
+                    navigation.navigate('Day', { currentWeather, hourly });
+                }}
+            >
+                <View style={styles.headerContainer}>
+                    <View
+                        style={{
+                            flexDirection: 'row',
+                            alignItems: 'center'
                         }}
-                    />
-                    <Text>{currentWeather?.main}</Text>
+                    >
+                        <Image
+                            style={styles.currentWeatherIcon}
+                            source={{
+                                uri: `https://openweathermap.org/img/wn/${currentWeather?.icon}@2x.png`
+                            }}
+                        />
+                        <Text>{currentWeather?.main}</Text>
+                    </View>
+                    <Text style={{ fontSize: 30 }}>{temp} ℃</Text>
                 </View>
-                <Text style={{ fontSize: 30 }}>{temp} ℃</Text>
-            </View>
+            </TouchableOpacity>
         );
     };
 
     renderItem = (item) => {
         let weather = item?.weather[0];
+        let maxTemp = item?.temp?.max;
+        let minTemp = item?.temp?.min;
         let timeStr = getTimeStr(item?.dt);
         const { navigation } = this.props;
         return (
@@ -126,7 +139,9 @@ class HomeScreen extends Component {
                     />
                     <View>
                         <Text>{weather.main}</Text>
-                        <Text>{weather.description}</Text>
+                        <Text>{`${parseInt(maxTemp)} / ${parseInt(
+                            minTemp
+                        )} ℃`}</Text>
                     </View>
                     <View style={{ flex: 1, alignItems: 'flex-end' }}>
                         <Text>{timeStr}</Text>
