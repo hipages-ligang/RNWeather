@@ -127,7 +127,7 @@ class HomeScreen extends Component {
         return (
             <TouchableOpacity
                 onPress={() => {
-                    navigation.navigate('Day', { weather });
+                    navigation.navigate('Day', { item });
                 }}
             >
                 <View style={styles.itemContainer} key={timeStr}>
