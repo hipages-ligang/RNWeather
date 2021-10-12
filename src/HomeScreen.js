@@ -94,7 +94,7 @@ class HomeScreen extends Component {
         return (
             <TouchableOpacity
                 onPress={() => {
-                    navigation.navigate('Today', { currentWeather, hourly });
+                    navigation.navigate('Day', { current, hourly });
                 }}
             >
                 <View style={styles.headerContainer}>
@@ -127,7 +127,7 @@ class HomeScreen extends Component {
         return (
             <TouchableOpacity
                 onPress={() => {
-                    navigation.navigate('Day');
+                    navigation.navigate('Day', { weather });
                 }}
             >
                 <View style={styles.itemContainer} key={timeStr}>
