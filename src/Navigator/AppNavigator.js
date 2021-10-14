@@ -11,7 +11,7 @@ export default AppNavigator = () => {
         <NavigationContainer>
             <Stack.Navigator>
                 <Stack.Screen name="Home" component={HomeScreen} />
-                <Stack.Screen name="Day" component={BroadcastDay} />
+                <Stack.Screen name="Day" options={{headerTransparent:true}} component={BroadcastDay} />
             </Stack.Navigator>
         </NavigationContainer>
     );
