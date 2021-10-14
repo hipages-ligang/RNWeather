@@ -86,48 +86,52 @@ class HomeScreen extends Component {
     renderHeader = () => {
         const current = this.state.weatherDataObj?.current;
         const currentWeather = current?.weather[0];
-
-        const hourly = this.state.weatherDataObj?.hourly;
-
         const temp = parseInt(current?.temp);
         const { navigation } = this.props;
         return (
-            <TouchableOpacity
-                onPress={() => {
-                    navigation.navigate('Day', { currentWeather, hourly });
-                }}
-            >
-                <View style={styles.headerContainer}>
-                    <View
-                        style={{
-                            flexDirection: 'row',
-                            alignItems: 'center'
+            <View style={styles.headerContainer}>
+                <View
+                    style={{
+                        flexDirection: 'row',
+                        alignItems: 'center'
+                    }}
+                >
+                    <Image
+                        style={styles.currentWeatherIcon}
+                        source={{
+                            uri: `https://openweathermap.org/img/wn/${currentWeather?.icon}@2x.png`
                         }}
-                    >
-                        <Image
-                            style={styles.currentWeatherIcon}
-                            source={{
-                                uri: `https://openweathermap.org/img/wn/${currentWeather?.icon}@2x.png`
-                            }}
-                        />
-                        <Text>{currentWeather?.main}</Text>
-                    </View>
-                    <Text style={{ fontSize: 30 }}>{temp} ℃</Text>
+                    />
+                    <Text>{currentWeather?.main}</Text>
                 </View>
-            </TouchableOpacity>
+                <Text style={{ fontSize: 30 }}>{temp} ℃</Text>
+            </View>
         );
     };
 
-    renderItem = (item) => {
+    renderItem = (item, index) => {
         let weather = item?.weather[0];
         let maxTemp = item?.temp?.max;
         let minTemp = item?.temp?.min;
         let timeStr = getTimeStr(item?.dt);
+        const hourly = this.state.weatherDataObj?.hourly;
+        let hourly_0_24 = [];
+        if (index == 0 && hourly.length >= 24) {
+            hourly_0_24 = hourly.slice(0, 24);
+        }
+        if (index == 1 && hourly.length >= 48) {
+        }
+
+        let hourlySlice = hourly.slice(index * 24, (index + 1) * 24 - 1);
         const { navigation } = this.props;
         return (
             <TouchableOpacity
                 onPress={() => {
-                    navigation.navigate('Day');
+                    // navigation.navigate('Day');
+                    navigation.navigate('Day', {
+                        dayWeather: item,
+                        hourlyArr: hourlySlice
+                    });
                 }}
             >
                 <View style={styles.itemContainer} key={timeStr}>
@@ -162,7 +166,9 @@ class HomeScreen extends Component {
                     }}
                     data={weatherList}
                     ListHeaderComponent={() => this.renderHeader()}
-                    renderItem={({ item }) => this.renderItem(item)}
+                    renderItem={({ item, index }) =>
+                        this.renderItem(item, index)
+                    }
                     keyExtractor={(item) => getTimeStr(item?.dt)}
                     refreshControl={
                         <RefreshControl
