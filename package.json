@@ -16,6 +16,14 @@
         "testPathIgnorePatterns": [
             "node_modules",
             ".history"
+        ],
+        "collectCoverage": true,
+        "collectCoverageFrom": [
+            "**/*.{js,jsx}",
+            "!**/coverage/**",
+            "!**/node_modules/**",
+            "!**/babel.config.js",
+            "!**/jest.setup.js"
         ]
     },
     "dependencies": {
