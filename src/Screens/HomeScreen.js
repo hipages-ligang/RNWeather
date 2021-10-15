@@ -8,10 +8,10 @@ import {
     Image,
     TouchableOpacity
 } from 'react-native';
-import { fetch7daysForecast } from './API/api';
-import Colors from './Assets/Colors';
-import { weatherData } from './Data/weatherData_7days';
-import { getTimeStr } from './Utils/commonUtils';
+import { fetch7daysForecast } from '../API/api';
+import Colors from '../Assets/Colors';
+import { weatherData } from '../Data/weatherData_7days';
+import { getTimeStr } from '../Utils/commonUtils';
 
 const styles = StyleSheet.create({
     container: {

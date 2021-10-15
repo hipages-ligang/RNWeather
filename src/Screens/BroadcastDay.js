@@ -12,7 +12,7 @@ import {
     getHourlyTempArr,
     getHourlyTimeHourArr,
     getSunsetSunriseTime
-} from './Utils/commonUtils';
+} from '../Utils/commonUtils';
 
 let data = {
     labels: [],
@@ -95,7 +95,7 @@ class BroadcastDay extends Component {
         return (
             <View style={{ flex: 1, backgroundColor: '#fff' }}>
                 <ImageBackground
-                    source={require('./Assets/WeatherBg.png')}
+                    source={require('../Assets/WeatherBg.png')}
                     style={{ width: '100%', height: '100%' }}
                 >
                     {this.hourlyArr.length > 1 && (
@@ -125,8 +125,9 @@ class BroadcastDay extends Component {
                                     bezier
                                 />
                             </ScrollView>
-                            
                         </View>
+                    )}
+                    {this.hourlyArr.length > 1 && (
                         <View>
                             <ScrollView
                                 horizontal={true}
@@ -134,9 +135,7 @@ class BroadcastDay extends Component {
                                     width: 800,
                                     height: 200
                                 }}
-                            >
-                                
-                            </ScrollView>
+                            ></ScrollView>
                         </View>
                     )}
                     <FlatList
@@ -150,6 +149,8 @@ class BroadcastDay extends Component {
             </View>
         );
     }
+
+    renderHourlyTemp;
 
     renderItemList = (item) => {
         return (
