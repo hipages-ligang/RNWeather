@@ -8,7 +8,7 @@ import {
     Image,
     TouchableOpacity
 } from 'react-native';
-import { fetch7daysForecast } from '../API/api';
+import { fetch7daysForecast, fetchTest } from '../API/api';
 import Colors from '../Assets/Colors';
 import { weatherData } from '../Data/weatherData_7days';
 import { getTimeStr } from '../Utils/commonUtils';
@@ -49,6 +49,24 @@ class HomeScreen extends Component {
     }
 
     updateWeather = () => {
+        // fetchTest()
+        //     .then((data) => {
+        //         if (data.success) {
+        //             console.log('----update weather success!----');
+        //             console.log(`-hourly count: ${data.value.hourly.length}`);
+        //             this.setState({
+        //                 weatherDataObj: data.value,
+        //                 refreshing: false
+        //             });
+        //             return;
+        //         }
+        //         this.setState({
+        //             refreshing: false
+        //         });
+        //     })
+        //     .catch(() => {
+        //         console.log('-=-=-=-=-=-=-=-=');
+        //     });
         fetch7daysForecast((data) => {
             if (data.success) {
                 console.log('----update weather success!----');

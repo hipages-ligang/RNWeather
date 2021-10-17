@@ -17,7 +17,7 @@
             "node_modules",
             ".history"
         ],
-        "collectCoverage": true,
+        "collectCoverage": false,
         "collectCoverageFrom": [
             "**/*.{js,jsx}",
             "!**/coverage/**",
