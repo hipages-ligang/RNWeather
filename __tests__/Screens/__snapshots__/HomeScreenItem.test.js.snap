@@ -1,0 +1,74 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<HomeScreenItem /> home screen item snapshot 1`] = `
+<View
+  accessible={true}
+  focusable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "opacity": 1,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#eeeeee",
+        "borderColor": "#cccccc",
+        "borderRadius": 5,
+        "borderWidth": 1,
+        "flexDirection": "row",
+        "height": 60,
+        "marginHorizontal": 10,
+        "marginVertical": 5,
+        "paddingHorizontal": 10,
+      }
+    }
+  >
+    <Image
+      source={
+        Object {
+          "uri": "https://openweathermap.org/img/wn/04d@2x.png",
+        }
+      }
+      style={
+        Object {
+          "backgroundColor": "#5fceea",
+          "borderRadius": 3,
+          "height": 50,
+          "marginRight": 10,
+          "width": 50,
+        }
+      }
+    />
+    <View>
+      <Text>
+        Clouds
+      </Text>
+      <Text>
+        17 / 13 ℃
+      </Text>
+    </View>
+    <View
+      style={
+        Object {
+          "alignItems": "flex-end",
+          "flex": 1,
+        }
+      }
+    >
+      <Text>
+        Fri 8/10
+      </Text>
+    </View>
+  </View>
+</View>
+`;

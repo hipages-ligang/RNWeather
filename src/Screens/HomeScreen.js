@@ -12,6 +12,7 @@ import { fetch7daysForecast } from '../API/api';
 import Colors from '../Assets/Colors';
 import { weatherData } from '../Data/weatherData_7days';
 import { getTimeStr } from '../Utils/commonUtils';
+import HomeScreenItem from './HomeScreenItem';
 
 const styles = StyleSheet.create({
     container: {
@@ -30,25 +31,6 @@ const styles = StyleSheet.create({
     currentWeatherIcon: {
         width: 50,
         height: 50
-    },
-    itemContainer: {
-        height: 60,
-        backgroundColor: Colors.cardBg,
-        paddingHorizontal: 10,
-        flexDirection: 'row',
-        alignItems: 'center',
-        marginHorizontal: 10,
-        marginVertical: 5,
-        borderWidth: 1,
-        borderRadius: 5,
-        borderColor: Colors.border
-    },
-    itemWeatherIcon: {
-        width: 50,
-        height: 50,
-        backgroundColor: Colors.primary_light,
-        marginRight: 10,
-        borderRadius: 3
     }
 });
 
@@ -110,48 +92,19 @@ class HomeScreen extends Component {
     };
 
     renderItem = (item, index) => {
-        let weather = item?.weather[0];
-        let maxTemp = item?.temp?.max;
-        let minTemp = item?.temp?.min;
-        let timeStr = getTimeStr(item?.dt);
         const hourly = this.state.weatherDataObj?.hourly;
-        let hourly_0_24 = [];
-        if (index == 0 && hourly.length >= 24) {
-            hourly_0_24 = hourly.slice(0, 24);
-        }
-        if (index == 1 && hourly.length >= 48) {
-        }
-
         let hourlySlice = hourly.slice(index * 24, (index + 1) * 24 - 1);
         const { navigation } = this.props;
         return (
-            <TouchableOpacity
-                onPress={() => {
-                    // navigation.navigate('Day');
+            <HomeScreenItem
+                item={item}
+                onPressCallback={() => {
                     navigation.navigate('Day', {
                         dayWeather: item,
                         hourlyArr: hourlySlice
                     });
                 }}
-            >
-                <View style={styles.itemContainer} key={timeStr}>
-                    <Image
-                        style={styles.itemWeatherIcon}
-                        source={{
-                            uri: `https://openweathermap.org/img/wn/${weather.icon}@2x.png`
-                        }}
-                    />
-                    <View>
-                        <Text>{weather.main}</Text>
-                        <Text>{`${parseInt(maxTemp)} / ${parseInt(
-                            minTemp
-                        )} ℃`}</Text>
-                    </View>
-                    <View style={{ flex: 1, alignItems: 'flex-end' }}>
-                        <Text>{timeStr}</Text>
-                    </View>
-                </View>
-            </TouchableOpacity>
+            />
         );
     };
 
